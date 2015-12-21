@@ -1,2 +1,470 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
+
+// ========================================= COLORS =========================================
+$bgColor: #1d1d1d;
+$red: #d90e0a;
+$blue: #67d9da;
+$gray: #9f9f9f;
+$white: #FFFFFF;
+
+// ========================================= FONTS =========================================
+$bodyFont: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$accentFont: "Oswald", sans-serif;
+
+html {
+	background-color: $bgColor;
+}
+
+body {
+	font-family: $bodyFont;
+	background-color: lighten($bgColor, 1%);
+	color: $white;
+	font-size: 13px;
+	padding: 0;
+	margin: 0;
+}
+
+.site-container {
+	@include outer-container(1440px);
+	background-color: $bgColor;
+}
+
+a {
+	text-decoration: none;
+	color: $red;
+	&:hover {
+		color: $white;
+	}
+}
+
+// ========================================= MIXINS =========================================
+@mixin frameIn {
+	background-color: rgba($bgColor, .7);
+	padding: .25em;
+	color: $white;
+}
+
+// ========================================= MASTHEAD =========================================
+.fixed {
+	position: fixed;
+	z-index: 10;
+	background-color: rgba(darken($bgColor, 10%), .8);
+	width: 100%;
+	left: 0;
+	z-index: 30;
+}
+
+.masthead {
+	@include outer-container(940px);
+	@include row(table);
+	padding-top: 1.5em;
+	@include media (max-width 600px) {
+		padding-top: 0;
+	}
+}
+
+.masthead__nav {
+	@include span-columns(8);
+	@include media (max-width 600px) {
+		@include span-columns(12);
+	}
+}
+
+.masthead__social {
+	@include span-columns(4);
+	@include media (max-width 600px) {
+		display: none;
+	}
+}
+
+.masthead__nav-list {
+	@include row(table);
+	padding: 0;
+	margin: 0;
+}
+
+.masthead__nav-list-item {
+	display: table-cell;
+	@include media (max-width 600px) {
+		vertical-align: middle;
+	}
+	@include media (max-width 500px) {
+		display: none;
+		&.keep {
+			display: table-cell;
+			text-align: center;
+		}
+	}
+}
+
+.masthead__nav-link {
+	color: $white;
+	display: block;
+	text-align: center;
+	padding: 1em .25em;
+	font-weight: 700;
+	&:hover {
+		color: $red;
+	}
+}
+
+.masthead__nav-link--logo {
+	display: block;
+}
+
+.masthead__nav-link-image {
+	width: 100%;
+	min-width: 50px;
+	max-width: 80px;
+}
+
+.masthead__nav-link-logo {
+	display: block;
+}
+
+.masthead__social {
+	text-align: right;
+}
+
+.masthead__button {
+	display: inline-block;
+	padding: 1em 4em 1em 1em;
+	background-color: lighten($bgColor, 16%);
+	font-weight: 700;
+	color: $blue;
+	position: relative;
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 3em;
+		height: 100%;
+		background-color: $red;
+	}
+	&:before {
+		content: '+';
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: .45em;
+		@include transform(translateY(-50%));
+		color: $white;
+		z-index: 10;
+		font-size: 2em;
+	}
+}
+
+.masthead__button-icon, .masthead__button-text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.masthead__button-icon {
+	padding-right: .5em;
+}
+
+// ========================================= HERO =========================================
+.hero {
+	height: 620px;
+	max-height: 100vh;
+	position: relative;
+	margin-bottom: 1em;
+}
+
+.hero__nav-zone {
+	@include outer-container(940px);
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.hero__nav--dots {
+	position: absolute;
+	bottom: 1em;
+	left: 50%;
+	@include transform(translateX(-50%));
+	z-index: 20;
+}
+
+.hero__nav--single-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: $white;
+	margin-right: 6px;
+	box-shadow: 0 0 5px darken($gray, 15%);
+	&:last-child {
+		margin-right: 0;
+	}
+	&:hover {
+		cursor: pointer;
+		background-color: $red;
+	}
+	&.active {
+		background-color: $red;
+	}
+}
+
+.hero__nav--arrows {
+	position: absolute;
+	bottom: 1em;
+	right: 0;
+	z-index: 20;
+	@include media (max-width 960px) {
+		right: 1em;
+	}
+}
+
+.hero__nav-arrow {
+	font-size: 4em;
+	color: $white;
+	line-height: 1;
+	text-shadow: 0 0 5px darken($gray, 15%);
+	padding: .1em;
+	&:hover {
+		color: $red;
+		cursor: pointer;
+	}
+}
+
+.hero__slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	color: $gray;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 10;
+	opacity: 0;
+	transition: .5s all ease;
+	&.active {
+		z-index: 15;
+		opacity: 1;
+	}
+	&.django {
+		background-image: url('../images/django.jpg');
+	}
+	&.vizio {
+		background-image: url('../images/vizio.jpg');
+	}
+	&.earth {
+		background-image: url('../images/escape.jpg');
+		color: $white;
+	}
+	&.ultra {
+		background-image: url('../images/ultra.jpg');
+	}
+}
+
+.hero__slide-text-container {
+	@include outer-container(940px);
+	height: 100%;
+	width: 100%;
+}
+
+.hero__slide-header {
+	position: relative;
+	text-align: left;
+	top: 29%;
+	max-width: 360px;
+	line-height: 1.1;
+}
+
+.django .hero__slide-header {
+	@include media(max-width 960px) {
+		max-width: 262px;
+	}
+	@include media(max-width 720px) {
+		max-width: none;
+		position: absolute;
+		top: auto;
+		bottom: 3em;
+		left: 2.55%;
+		width: 95%;
+	}
+}
+
+.vizio .hero__slide-header {
+	top: 20%;
+	max-width: 440px;
+	margin: 0 0 0 auto;
+	@include media(max-width 800px) {
+		max-width: none;
+		top: 13%;
+	}
+}
+
+.earth .hero__slide-header {
+	top: 16%;
+	max-width: 410px;
+	@include media(max-width 960px) {
+		max-width: none;
+		position: absolute;
+		top: auto;
+		bottom: 3em;
+		left: 2.5%;
+		width: 95%;
+	}
+}
+
+.ultra .hero__slide-header {
+	top: 20%;
+	max-width: 440px;
+}
+
+.hero__slide-heading {
+	font-family: $accentFont;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 4.15em;
+	margin: 0 auto .15em;
+	padding: 0;
+	color: $red;
+	@include media(max-width 600px) {
+		font-size: 3.15em;
+	}
+}
+
+.earth .hero__slide-heading, .earth .hero__slide-link {
+	color: #f68f1e;
+}
+
+.earth .hero__slide-heading {
+	@include media(max-width 600px) {
+		font-size: 2.8em;
+	}
+}
+
+.ultra .hero__slide-heading, .ultra .hero__slide-link {
+	color: #2162bc;
+}
+
+.hero__slide-description {
+	font-size: 1.23em;
+	line-height: 1.25;
+}
+
+.django .hero__slide-description {
+	@include media(max-width 720px) {
+		@include frameIn;
+	}
+}
+
+.vizio .hero__slide-description {
+	@include media(max-width 800px) {
+		@include frameIn;
+	}
+}
+
+.earth .hero__slide-description, .ultra .hero__slide-description {
+	@include media(max-width 960px) {
+		@include frameIn;
+	}
+}
+
+.hero__slide-link:hover {
+	color: $gray;
+}
+
+// ========================================= BRAND =========================================
+.brand {
+	@include outer-container(940px);
+	margin-bottom: 4em;
+}
+
+.brand__heading {
+	font-size: 2.77em;
+	padding: 1em 0;
+	border-bottom: solid 5px lighten($bgColor, 6%);
+	margin: 0;
+	@include media (max-width 600px) {
+		font-size: 1.85em;
+	}
+}
+
+.brand__heading--emphasis {
+	color: $red;
+}
+
+// ========================================= FEEDS =========================================
+
+.feed {
+	@include outer-container(940px);
+	margin-bottom: 4em;
+	@include media(max-width 650px) {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+		max-width: 400px;
+	}
+}
+
+.feed__header {
+	padding: 1em 0;
+	border-bottom: solid 1px lighten($bgColor, 6%);
+	margin-bottom: 1.5em;
+}
+
+.feed__heading {
+	color: darken($gray, 10%);
+	font-size: 1.69em;
+	display: inline-block;
+	margin: 0;
+	padding: 0 .5em 0 0;
+}
+
+.feed__list {
+	padding: 0;
+	margin: 0;
+	@include row(table);
+}
+
+.feed__list-item {
+	@include span-columns(4);
+	padding-right: 1em;
+	@include media(max-width 650px) {
+		display: block;
+		width: 100%;
+		margin-bottom: 2em;
+	}
+}
+
+.feed__list-item-header--work {
+	font-size: 1.23em;
+	margin-bottom: 0;
+}
+
+.feed__list-image {
+	width: 100%;
+	max-width: 100%;
+}
+
+.feed__list-item-header--emphasis {
+	color: $blue;
+}
+
+.feed__list-item-description, .feed__list-item-date {
+	line-height: 1.5;
+	color: $gray;
+	margin: .5em auto;
+}
+
+.feed__list-item-header--news {
+	font-size: 2.5em;
+	margin: 0;
+}
+
+@media screen and (max-width: 960px) {
+	.masthead, .feed, .brand, .hero__slide {
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+}

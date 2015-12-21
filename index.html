@@ -1,9 +1,132 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>Home Content</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+	<script type="text/javascript" src='js/index.js'></script>
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+	<div class='site-container'>
+		<div class='fixed'>
+			<header class='masthead'>
+				<nav class='masthead__nav'>
+					<ul class='masthead__nav-list'>
+						<li class='masthead__nav-list-item keep'><a href="#" class='masthead__nav-link--logo'><img src='images/logo.png' class='masthead__nav-link-image' alt='Envoy' title='Envoy'></a></li>
+						<li class='masthead__nav-list-item keep'><a href="#" class='masthead__nav-link'>Work</a></li>
+						<li class='masthead__nav-list-item'><a href="#" class='masthead__nav-link'>Services</a></li>
+						<li class='masthead__nav-list-item'><a href="#" class='masthead__nav-link'>Ventures</a></li>
+						<li class='masthead__nav-list-item keep'><a href="#" class='masthead__nav-link'>About</a></li>
+						<li class='masthead__nav-list-item keep'><a href="#" class='masthead__nav-link'>Contact</a></li>
+						<li class='masthead__nav-list-item keep'><a href="#" class='masthead__nav-link'>Blog</a></li>
+					</ul>
+				</nav>
+				<div class='masthead__social'>
+					<a href="#" class='masthead__button'><img class='masthead__button-icon' src='images/twitter.png' alt='Twitter' title='Twitter'><span class='masthead__button-text'>Tweet. Tweet.</span></a>
+				</div>
+			</header>
+		</div>
+		<div class='hero'>
+			<section class='hero__slide django'>
+				<div class='hero__slide-text-container'>
+					<header class='hero__slide-header'>
+						<h2 class='hero__slide-heading'>The iPhone Unchained.</h2>
+						<p class='hero__slide-description'>Tarantino’s outrageous film Django Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href='#' class='hero__slide-link'>View Project</a></p>
+					</header>
+				</div>
+			</section>
+			<section class='hero__slide vizio'>
+				<div class='hero__slide-text-container'>
+					<header class='hero__slide-header'>
+						<h2 class='hero__slide-heading'>Say Hello to the Future of Vizio</h2>
+						<p class='hero__slide-description'>When Vizio needed to pull the wrap off its new family of PCs they called on Envoy to conceptualize, direct and produce a series of short product films. <a href='#' class='hero__slide-link'>View Project</a></p>
+					</header>
+				</div>
+			</section>
+			<section class='hero__slide earth'>
+				<div class='hero__slide-text-container'>
+					<header class='hero__slide-header'>
+						<h2 class='hero__slide-heading'>Helping Earth's Greatest Secrets Break Out</h2>
+						<p class='hero__slide-description'>Activate rocket boots! We created a series of out of this world mobile apps and games to introduce the hilarious animated film Escape From Planet Earth. <a href='#' class='hero__slide-link'>View Project</a></p>
+					</header>
+				</div>
+			</section>
+			<section class='hero__slide ultra'>
+				<div class='hero__slide-text-container'>
+					<header class='hero__slide-header'>
+						<h2 class='hero__slide-heading'>World Meet Ultra. Ultra Meet World.</h2>
+						<p class='hero__slide-description'>Asked to launch T-Mobile’s new internationally-minded brand, Ultra Mobile, we created a campaign that’s creativity knows no borders. <a href='#' class='hero__slide-link'>View Project</a></p>
+					</header>
+				</div>
+			</section>
+			<div class='hero__nav-zone'>
+				<nav class='hero__nav--dots nav'>
+					<span class='hero__nav--single-dot' data-slide='0'></span>
+					<span class='hero__nav--single-dot' data-slide='1'></span>
+					<span class='hero__nav--single-dot' data-slide='2'></span>
+					<span class='hero__nav--single-dot' data-slide='3'></span>
+				</nav>
+				<nav class='hero__nav--arrows'>
+					<span class='hero__nav-arrow previous'>&#8249;</span>
+					<span class='hero__nav-arrow next'>&#8250;</span>
+				</nav>
+			</div>
+		</div>
+		<section class='brand'>
+			<h1 class='brand__heading'>An independent full service creative agency helping brave brands build businesses and be heard in a world full of noise. <span class='brand__heading--emphasis'>We are Envoy.</span></h1>
+		</section>
+		<section class='feed work'>
+			<header class='feed__header'>
+				<h2 class='feed__heading'>Featured Work</h2>
+				<a href="#" class='feed__header-link'>View All Work</a>
+			</header>
+			<ul class='feed__list'>
+				<li class='feed__list-item'>
+					<img class='feed__list-image' src="images/boost.jpg" alt='Boost Mobile'>
+					<h3 class='feed__list-item-header--work'>Boost Mobile <span class='feed__list-item-header--emphasis'>Rebrand</span></h3>
+					<p class='feed__list-item-description'>Boost Mobile recognized the need to elevate and refresh its brand to speak to a broader audience. The result was an evolved logo, ...</p>
+					<a href="#" class='feed__list-item-link'>View Project</a>
+				</li>
+				<li class='feed__list-item'>
+					<img class='feed__list-image' src="images/pear.jpg" alt='Pear Sports'>
+					<h3 class='feed__list-item-header--work'>Pear Sports <span class='feed__list-item-header--emphasis'>Training Portal</span></h3>
+					<p class='feed__list-item-description'>Pear Sports revolutionary training systems and fitness apps were getting lost in a crowded marketplace. Envoy rebuilt the story and ... </p>
+					<a href="#" class='feed__list-item-link'>View Project</a>
+				</li>
+				<li class='feed__list-item'>
+					<img class='feed__list-image' src="images/511.jpg" alt='Always be Ready'>
+					<h3 class='feed__list-item-header--work'>5.11 <span class='feed__list-item-header--emphasis'>Ultimate Training Experience</span></h3>
+					<p class='feed__list-item-description'>5.11, the industry leader in tactical gear turned to Envoy to bring their “Ultimate Training Challenge” to life in the digital space ...</p>
+					<a href="#" class='feed__list-item-link'>View Project</a>
+				</li>
+			</ul>
+		</section>
+		<section class='feed news'>
+			<header class='feed__header'>
+				<h2 class='feed__heading'>Wire</h2>
+				<a href="#" class='feed__header-link'>View All News</a>
+			</header>
+			<ul class='feed__list'>
+				<li class='feed__list-item'>
+					<h3 class='feed__list-item-header--news'>The Weinstein Co Lets Envoy Loose on Sin City 2 </h3>
+					<p class='feed__list-item-date'>May 1, 2013</p>
+					<a href="#" class='feed__list-item-link'>Read More</a>
+				</li>
+				<li class='feed__list-item'>
+					<h3 class='feed__list-item-header--news'>5.11 Taps Envoy as New Digital Agency</h3>
+					<p class='feed__list-item-date'>May 1, 2013</p>
+					<a href="#" class='feed__list-item-link'>Read More</a>
+				</li>
+				<li class='feed__list-item'>
+					<h3 class='feed__list-item-header--news'><span class='feed__list-item-header--emphasis'>Pear Breaks Ground on Ground Breaking App</span></h3>
+					<p class='feed__list-item-date'>May 1, 2013</p>
+					<a href="#" class='feed__list-item-link'>Read More</a>
+				</li>
+			</ul>
+		</section>
+	</div>
 </body>
 </html>
